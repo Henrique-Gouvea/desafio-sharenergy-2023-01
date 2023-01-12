@@ -3,6 +3,7 @@
     "Aplication",
     "Interface",
     "Database",
-    "Server"
+    "Server",
+    "Models"
   ]
 }
