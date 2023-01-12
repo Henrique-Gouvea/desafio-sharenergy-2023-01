@@ -1,3 +1,8 @@
 {
-  "conventionalCommits.scopes": ["Aplication", "Interface", "Database"]
+  "conventionalCommits.scopes": [
+    "Aplication",
+    "Interface",
+    "Database",
+    "Server"
+  ]
 }
