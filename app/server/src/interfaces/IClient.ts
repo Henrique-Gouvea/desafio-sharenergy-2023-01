@@ -1,4 +1,4 @@
-export interface IUser {
+export interface IClient {
   username: string
   email: string
   phone: string
