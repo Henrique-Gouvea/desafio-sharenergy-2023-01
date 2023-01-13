@@ -9,6 +9,7 @@
     "Errors",
     "Validation",
     "Controller ",
-    "Router"
+    "Router",
+    "Integrations"
   ]
 }

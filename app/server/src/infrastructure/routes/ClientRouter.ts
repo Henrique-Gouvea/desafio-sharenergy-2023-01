@@ -1,5 +1,5 @@
 import { Router, Request, Response } from "express"
-import clientController from "../controllers/clientController"
+import clientController from "../integration/ClientIntegration"
 
 const routeClient = Router()
 
