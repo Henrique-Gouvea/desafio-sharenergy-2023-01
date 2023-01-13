@@ -1,5 +1,5 @@
 import { model as mongooseCreateModel, Schema } from "mongoose"
-import { IClient } from "../../../interfaces/IClient"
+import { IClient } from "../../interfaces/IClient"
 import MongoModel from "./MongoModel"
 
 const clientMongooseSchema = new Schema<IClient>(

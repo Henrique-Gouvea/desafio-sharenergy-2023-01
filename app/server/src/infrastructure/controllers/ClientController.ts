@@ -1,6 +1,6 @@
 import { Request, Response } from "express"
-import { IClient } from "../../interfaces/IClient"
-import IService from "../../interfaces/IService"
+import { IClient } from "../interfaces/IClient"
+import IService from "../interfaces/IService"
 
 class ClientController {
   constructor(private service: IService<IClient>) {}

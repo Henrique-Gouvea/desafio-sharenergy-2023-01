@@ -1,6 +1,6 @@
 import { Request, Response } from "express"
-import { IUser } from "../../interfaces/IUser"
-import IService from "../../interfaces/IService"
+import { IUser } from "../interfaces/IUser"
+import IService from "../interfaces/IService"
 
 class UserController {
   constructor(private service: IService<IUser>) {}

@@ -1,6 +1,6 @@
 import CustomError from "../helpers/errors/CustomErrors"
-import { IUser } from "../../interfaces/IUser"
-import { IModel } from "../../interfaces/IModel"
+import { IUser } from "../interfaces/IUser"
+import { IModel } from "../interfaces/IModel"
 import userValidate from "../validation/userSchema"
 
 class userService implements IModel<IUser> {

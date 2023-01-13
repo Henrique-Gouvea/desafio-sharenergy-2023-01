@@ -1,5 +1,5 @@
 import * as Joi from "joi"
-import { IUser } from "../../interfaces/IUser"
+import { IUser } from "../interfaces/IUser"
 import CustomError from "../helpers/errors/CustomErrors"
 
 const userSchema = Joi.object({

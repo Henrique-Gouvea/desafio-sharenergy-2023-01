@@ -1,6 +1,6 @@
 import CustomError from "../helpers/errors/CustomErrors"
-import { IClient } from "../../interfaces/IClient"
-import { IModel } from "../../interfaces/IModel"
+import { IClient } from "../interfaces/IClient"
+import { IModel } from "../interfaces/IModel"
 import clientValidate from "../validation/clientSchema"
 
 class ClientService implements IModel<IClient> {

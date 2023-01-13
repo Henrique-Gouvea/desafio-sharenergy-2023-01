@@ -1,5 +1,5 @@
 import * as Joi from "joi"
-import { IClient } from "../../interfaces/IClient"
+import { IClient } from "../interfaces/IClient"
 import CustomError from "../helpers/errors/CustomErrors"
 
 const clientSchema = Joi.object({
