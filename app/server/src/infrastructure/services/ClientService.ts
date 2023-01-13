@@ -4,8 +4,11 @@ import { IModel } from "../../interfaces/IModel"
 import clientValidate from "../validation/clientSchema"
 
 class ClientService implements IModel<IClient> {
-  constructor(private _modelClient: IModel<IClient>) {}
-
+  // constructor(private _modelClient: IModel<IClient>) {}
+  private _modelClient: IModel<IClient>
+  constructor(model: IModel<IClient>) {
+    this._modelClient = model
+  }
   public async create(client: IClient): Promise<IClient> {
     clientValidate(client)
     const newclient = await this._modelClient.create(client)
