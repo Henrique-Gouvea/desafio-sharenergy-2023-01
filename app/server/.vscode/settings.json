@@ -5,6 +5,7 @@
     "Database",
     "Server",
     "Models",
-    "Service"
+    "Service",
+    "Errors"
   ]
 }
