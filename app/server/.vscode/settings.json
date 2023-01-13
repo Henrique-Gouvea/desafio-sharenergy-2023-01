@@ -6,6 +6,7 @@
     "Server",
     "Models",
     "Service",
-    "Errors"
+    "Errors",
+    "Validation"
   ]
 }
