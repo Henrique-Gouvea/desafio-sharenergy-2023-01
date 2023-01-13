@@ -1,9 +1,9 @@
 import { Request, Response } from "express"
 import { IUser } from "../interfaces/IUser"
-import IService from "../interfaces/IService"
+import { IServiceLogin } from "../interfaces/IService"
 
 class UserController {
-  constructor(private service: IService<IUser>) {}
+  constructor(private service: IServiceLogin<IUser>) {}
 
   public async create(req: Request, res: Response) {
     const user = req.body
@@ -33,6 +33,14 @@ class UserController {
     const { id } = req.params
     await this.service.delete(id)
     res.status(204).json({ message: "User excluded" })
+  }
+
+  public async login(req: Request, res: Response) {
+    console.log("henrique")
+    const user = req.body
+
+    const token = await this.service.login(user)
+    res.status(200).json(token)
   }
 }
 

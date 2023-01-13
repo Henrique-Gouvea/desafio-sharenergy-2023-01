@@ -45,6 +45,7 @@ class userService implements IModel<IUser> {
 
   public async login(user: IUser): Promise<IUser | null> {
     userValidate(user)
+
     const allusers = await this._modelUser.read()
     const userVerify = allusers.some(
       (userSome) => userSome.username === user.username

@@ -7,8 +7,8 @@ routeUser.post("/", (req: Request, res: Response) =>
   userController.create(req, res)
 )
 
-routeUser.get("/", (req: Request, res: Response) =>
-  userController.read(req, res)
+routeUser.post("/auth", (req: Request, res: Response) =>
+  userController.login(req, res)
 )
 
 routeUser.get("/:id", (req: Request, res: Response) =>

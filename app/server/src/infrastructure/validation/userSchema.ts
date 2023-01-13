@@ -8,7 +8,7 @@ const userSchema = Joi.object({
     "any.required": "Field is name required",
   }),
 
-  password: Joi.string().email().required().messages({
+  password: Joi.string().required().messages({
     "string.empty": "Field is password required",
     "any.required": "Field is password required",
   }),
