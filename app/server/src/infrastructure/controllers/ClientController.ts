@@ -2,7 +2,7 @@ import { Request, Response } from "express"
 import { IClient } from "../../interfaces/IClient"
 import IService from "../../interfaces/IService"
 
-class clientController {
+class ClientController {
   constructor(private service: IService<IClient>) {}
 
   public async create(req: Request, res: Response) {
@@ -36,4 +36,4 @@ class clientController {
   }
 }
 
-export default clientController
+export default ClientController
