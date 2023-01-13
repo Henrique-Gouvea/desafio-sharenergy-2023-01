@@ -1,6 +1,9 @@
 import ClientModel from "../database/models/ClientModel"
 import ClientService from "../services/ClientService"
-import clientController from "../controllers/ClientController"
+import ClientController from "../controllers/ClientController"
 
 const clientModel = new ClientModel()
-const carService = new ClientService(clientModel)
+const clientService = new ClientService(clientModel)
+const clientController = new ClientController(clientService)
+
+export default clientController
