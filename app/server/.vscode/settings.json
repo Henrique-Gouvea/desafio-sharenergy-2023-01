@@ -4,6 +4,7 @@
     "Interface",
     "Database",
     "Server",
-    "Models"
+    "Models",
+    "Service"
   ]
 }
