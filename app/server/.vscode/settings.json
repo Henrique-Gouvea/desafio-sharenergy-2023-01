@@ -8,6 +8,7 @@
     "Service",
     "Errors",
     "Validation",
-    "Controller "
+    "Controller ",
+    "Router"
   ]
 }
