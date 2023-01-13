@@ -42,6 +42,17 @@ class userService implements IModel<IUser> {
     const delectedUser = await this._modelUser.delete(id)
     return delectedUser
   }
+
+  public async login(user: IUser): Promise<IUser | null> {
+    userValidate(user)
+    const allusers = await this._modelUser.read()
+    const userVerify = allusers.some(
+      (userSome) => userSome.username === user.username
+    )
+    if (userVerify) throw new CustomError(422, "User already registered")
+
+    return allusers[0]
+  }
 }
 
 export default userService
