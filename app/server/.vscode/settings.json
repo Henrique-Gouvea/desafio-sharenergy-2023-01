@@ -11,6 +11,7 @@
     "Controller ",
     "Router",
     "Integrations",
-    "Middleware"
+    "Middleware",
+    "Provider"
   ]
 }
