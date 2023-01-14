@@ -33,6 +33,7 @@
   },
   "dependencies": {
     "@types/cors": "^2.8.13",
+    "@types/jsonwebtoken": "^9.0.1",
     "@types/mongoose": "^5.11.97",
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
