@@ -2,10 +2,10 @@ import { NextFunction, Request, Response } from "express"
 import CustomError from "../helpers/errors/CustomErrors"
 import { IToken } from "../interfaces/providers/IToken"
 
-class tokenMiddleware {
+class TokenMiddleware {
   constructor(private token: IToken) {}
 
-  checkTokenMiddleware(req: Request, res: Response, next: NextFunction): void {
+  checkTokenMiddleware(req: Request, _res: Response, next: NextFunction): void {
     try {
       const authHeader = req.headers.authorization
 
@@ -23,4 +23,4 @@ class tokenMiddleware {
   }
 }
 
-export default tokenMiddleware
+export default TokenMiddleware

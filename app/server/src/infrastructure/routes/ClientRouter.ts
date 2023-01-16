@@ -1,7 +1,12 @@
-import { Router, Request, Response } from "express"
+import { Router, Request, Response, NextFunction } from "express"
 import clientController from "../integration/ClientIntegration"
+import tokenMiddleware from "../integration/TokenIntegration"
 
 const routeClient = Router()
+
+routeClient.use((req: Request, res: Response, next: NextFunction) =>
+  tokenMiddleware.checkTokenMiddleware(req, res, next)
+)
 
 routeClient.post("/", (req: Request, res: Response) =>
   clientController.create(req, res)
