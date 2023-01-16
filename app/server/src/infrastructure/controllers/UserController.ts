@@ -3,7 +3,7 @@ import { IUser } from "../interfaces/IUser"
 import { IServiceLogin } from "../interfaces/IService"
 
 class UserController {
-  constructor(private service: IServiceLogin<IUser>) {}
+  constructor(private service: IServiceLogin<IUser | string>) {}
 
   public async create(req: Request, res: Response) {
     const user = req.body
@@ -36,11 +36,10 @@ class UserController {
   }
 
   public async login(req: Request, res: Response) {
-    console.log("henrique")
     const user = req.body
 
     const token = await this.service.login(user)
-    res.status(200).json(token)
+    res.status(200).json({ token })
   }
 }
 

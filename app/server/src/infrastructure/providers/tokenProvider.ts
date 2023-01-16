@@ -3,14 +3,14 @@ import "dotenv/config"
 import { IToken } from "../interfaces/providers/IToken"
 import CustomError from "../helpers/errors/CustomErrors"
 
-class tokenProvider implements IToken {
+class TokenProvider implements IToken {
   private jwtSecret: string
   constructor() {
     this.jwtSecret = process.env.JWT_SECRET || "jwt_secret"
   }
 
-  generateToken(email: string): string {
-    const token = sign({ data: email }, this.jwtSecret, {
+  generateToken(username: string): string {
+    const token = sign({ data: username }, this.jwtSecret, {
       expiresIn: "5d",
       algorithm: "HS256",
     })
@@ -31,4 +31,4 @@ class tokenProvider implements IToken {
   }
 }
 
-export default tokenProvider
+export default TokenProvider
