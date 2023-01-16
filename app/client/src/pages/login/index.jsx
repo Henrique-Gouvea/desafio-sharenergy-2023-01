@@ -6,9 +6,17 @@ function Login() {
   return (
     <div>
       <form>
-        <Input name="login-name" type="text" placeholder="Name"></Input>
-        <Input name="login-name" type="password" placeholder="Password"></Input>
+        <Input id="login-name" type="text" placeholder="Name"></Input>
+        <Input
+          id="login-password"
+          type="password"
+          placeholder="Password"
+        ></Input>
         <Button type="submit">Login</Button>
+        <div>
+          <Input type="checkbox" name="remember" checked={false} />
+          <label id="remember-label">Remember Me</label>
+        </div>
       </form>
     </div>
   )
