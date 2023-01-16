@@ -1,11 +1,15 @@
 import React from "react"
-// import Form from "../components/form"
+import Input from "../../components/input"
+import Button from "../../components/button"
 
 function Login() {
   return (
     <div>
-      <h1>Login</h1>
-      <div>{/* <Form /> */}</div>
+      <form>
+        <Input name="login-name" type="text" placeholder="Name"></Input>
+        <Input name="login-name" type="password" placeholder="Password"></Input>
+        <Button type="submit">Login</Button>
+      </form>
     </div>
   )
 }
