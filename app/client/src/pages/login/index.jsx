@@ -1,6 +1,7 @@
 import React, { Component } from "react"
 import Input from "../../components/input"
 import Button from "../../components/button"
+import HttpService from "../../service/HttpService"
 
 class Login extends Component {
   state = {
@@ -8,9 +9,20 @@ class Login extends Component {
     password: "",
     isChecked: false,
   }
+  httpService = new HttpService()
 
-  handleChecked() {
+  async handleChecked() {
+    console.log("teste")
     this.setState({ isChecked: !this.state.isChecked })
+  }
+
+  async handleClick(event) {
+    event.preventDefault()
+    console.log("henrique")
+    console.log(this.state.isChecked)
+    console.log(this.state.username)
+
+    // console.log(this.username)
   }
 
   render() {
@@ -43,11 +55,9 @@ class Login extends Component {
               checked={isChecked}
               onChange={() => this.handleChecked()}
             />
-            <label id="remember-label" onChange={() => this.handleChecked()}>
-              Remember Me
-            </label>
+            <label id="remember-label">Remember Me</label>
           </div>
-          <Button type="submit">Login</Button>
+          <Button onClick={(event) => this.handleClick(event)}>Login</Button>
         </form>
       </div>
     )
