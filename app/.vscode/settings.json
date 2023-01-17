@@ -1,3 +1,9 @@
 {
-  "conventionalCommits.scopes": ["Client", "Pages", "Routes", "Components"]
+  "conventionalCommits.scopes": [
+    "Client",
+    "Pages",
+    "Routes",
+    "Components",
+    "Service"
+  ]
 }
