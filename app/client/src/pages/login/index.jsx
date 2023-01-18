@@ -2,6 +2,7 @@ import React, { Component } from "react"
 import Input from "../../components/input"
 import Button from "../../components/button"
 import HttpService from "../../service/HttpService"
+import UrlService from "../../service/UrlService"
 
 class Login extends Component {
   state = {
@@ -10,6 +11,7 @@ class Login extends Component {
     isChecked: false,
   }
   httpService = new HttpService()
+  urlService = new UrlService()
 
   async handleChecked() {
     console.log("teste")
@@ -18,11 +20,16 @@ class Login extends Component {
 
   async handleClick(event) {
     event.preventDefault()
-    console.log("henrique")
-    console.log(this.state.isChecked)
-    console.log(this.state.username)
 
-    // console.log(this.username)
+    const { loginUserUrl } = this.urlService
+    const { username, password } = this.state
+    console.log(password)
+    const response = await this.httpService.post(loginUserUrl(), {
+      username,
+      password,
+    })
+    console.log(response)
+    // console.log(loginUserUrl())
   }
 
   render() {
