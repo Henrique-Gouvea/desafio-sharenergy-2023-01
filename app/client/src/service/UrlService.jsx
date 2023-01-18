@@ -17,6 +17,9 @@ class UrlService {
   clientUrlId(id) {
     return apiDomain + "client/" + id
   }
+  randomUser(quantity) {
+    return "https://randomuser.me/api/?results=" + quantity
+  }
 }
 
 export default UrlService
