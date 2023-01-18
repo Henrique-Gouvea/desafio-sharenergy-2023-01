@@ -3,18 +3,20 @@ import Input from "../../components/input"
 import Button from "../../components/button"
 import HttpService from "../../service/HttpService"
 import UrlService from "../../service/UrlService"
+import { Navigate } from "react-router-dom"
 
 class Login extends Component {
   state = {
     username: "",
     password: "",
     isChecked: false,
+    user: null,
+    error: null,
   }
   httpService = new HttpService()
   urlService = new UrlService()
 
   async handleChecked() {
-    console.log("teste")
     this.setState({ isChecked: !this.state.isChecked })
   }
 
@@ -23,19 +25,24 @@ class Login extends Component {
 
     const { loginUserUrl } = this.urlService
     const { username, password } = this.state
-    console.log(password)
     const response = await this.httpService.post(loginUserUrl(), {
       username,
       password,
     })
-    console.log(response)
+    console.log(response.data.message)
+    if (response.status === 200) {
+      this.setState({ user: username })
+    } else {
+      this.setState({ error: response.data.message })
+    }
     // console.log(loginUserUrl())
   }
 
   render() {
-    const { username, password, isChecked } = this.state
+    const { username, password, isChecked, user, error } = this.state
     return (
       <div>
+        {user && <Navigate to="/users" />}
         <form>
           <Input
             id="login-name"
@@ -66,6 +73,7 @@ class Login extends Component {
           </div>
           <Button onClick={(event) => this.handleClick(event)}>Login</Button>
         </form>
+        {error && <p>{error}</p>}
       </div>
     )
   }
