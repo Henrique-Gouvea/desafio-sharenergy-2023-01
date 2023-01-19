@@ -23,6 +23,9 @@ class UrlService {
   catStatusCode(status_code) {
     return "https://http.cat/" + status_code
   }
+  randomDogApi() {
+    return "https://random.dog/woof.json"
+  }
 }
 
 export default UrlService

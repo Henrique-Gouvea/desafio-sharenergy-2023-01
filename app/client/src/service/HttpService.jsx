@@ -30,6 +30,18 @@ class HttpService {
       return error.response !== undefined ? error.response : error
     }
   }
+
+  async getAPIFetch(url) {
+    const urlImage = await fetch(url)
+      .then((res) => res.json())
+      .then((data) => {
+        return data.url
+      })
+      .catch((err) => {
+        return err
+      })
+    return urlImage
+  }
 }
 
 export default HttpService
