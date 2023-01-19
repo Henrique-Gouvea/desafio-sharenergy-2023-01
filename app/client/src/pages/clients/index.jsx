@@ -2,12 +2,18 @@ import React, { Component } from "react"
 import HttpService from "../../service/HttpService"
 import UrlService from "../../service/UrlService"
 import Table from "../../components/table"
+import Cadaster from "../../components/cadaster"
+import Button from "../../components/button"
 
 class Client extends Component {
   constructor(props) {
     super(props)
     this.state = {
       clients: "",
+      inputDisabled: true,
+      btnNewClientDisabled: false,
+      btnCancelDisabled: true,
+      btnSaveDisabled: true,
     }
     this.headerTable = ["Nome", "E-mail", "Dados", "Editar", "Deletar"]
     this.httpService = new HttpService()
@@ -21,10 +27,50 @@ class Client extends Component {
     this.setState({ clients: data })
   }
 
+  changeState() {
+    this.setState({
+      inputDisabled: !this.state.inputDisabled,
+      btnNewClientDisabled: !this.state.btnNewClientDisabled,
+      btnCancelDisabled: !this.state.btnCancelDisabled,
+      btnSaveDisabled: !this.state.btnSaveDisabled,
+    })
+  }
+
+  btnNewClient() {
+    this.changeState()
+  }
+
+  btnCancel() {
+    this.changeState()
+  }
+
+  btnSave() {
+    this.changeState()
+  }
+
   render() {
-    const { clients } = this.state
+    const {
+      clients,
+      inputDisabled,
+      btnNewClientDisabled,
+      btnCancelDisabled,
+      btnSaveDisabled,
+    } = this.state
     return (
       <div>
+        <Button
+          onClick={() => this.btnNewClient()}
+          disabled={btnNewClientDisabled}
+        >
+          Novo Cliente
+        </Button>
+        <Button onClick={() => this.btnCancel()} disabled={btnCancelDisabled}>
+          Cancelar
+        </Button>
+        <Button onClick={() => this.btnSave()} disabled={btnSaveDisabled}>
+          Salvar
+        </Button>
+        <Cadaster inputDisabled={inputDisabled} />
         <Table headerTH={this.headerTable} body={clients} />
       </div>
     )

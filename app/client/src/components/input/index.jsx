@@ -1,6 +1,14 @@
 import React from "react"
 
-function Input({ name, type, onChange, value, placeholder, className }) {
+function Input({
+  name,
+  type,
+  onChange,
+  value,
+  placeholder,
+  className,
+  disabled,
+}) {
   return (
     <input
       name={name}
@@ -9,6 +17,7 @@ function Input({ name, type, onChange, value, placeholder, className }) {
       value={value}
       placeholder={placeholder}
       className={className}
+      disabled={disabled}
     />
   )
 }
