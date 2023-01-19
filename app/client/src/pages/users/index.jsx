@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 import HttpService from "../../service/HttpService"
 import UrlService from "../../service/UrlService"
-// import { Navigate } from "react-router-dom"
+import CardUser from "../../components/cardUser"
 
 class Users extends Component {
   constructor(props) {
@@ -16,7 +16,7 @@ class Users extends Component {
   async componentDidMount() {
     const { randomUser } = this.urlService
     const { data } = await this.httpService.get(randomUser(10))
-    console.log(data)
+    console.log(data.results)
     this.setState({ users: data.results })
   }
 
@@ -26,10 +26,7 @@ class Users extends Component {
       <div>
         {users ? (
           users.map((user) => (
-            <div>
-              <p>Nome</p>
-              <p>{user.name.first}</p>
-            </div>
+            <CardUser key={user.login.username} user={user} />
           ))
         ) : (
           <></>
