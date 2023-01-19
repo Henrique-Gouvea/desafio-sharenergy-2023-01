@@ -2,6 +2,7 @@ import React, { Component } from "react"
 import HttpService from "../../service/HttpService"
 import UrlService from "../../service/UrlService"
 import CardUser from "../../components/cardUser"
+import Table from "../../components/table"
 
 class Client extends Component {
   constructor(props) {
@@ -9,6 +10,7 @@ class Client extends Component {
     this.state = {
       clients: "",
     }
+    this.headerTable = ["Nome", "E-mail", "Mais Dados", "Editar", "Deletar"]
     this.httpService = new HttpService()
     this.urlService = new UrlService()
   }
@@ -24,13 +26,7 @@ class Client extends Component {
     const { clients } = this.state
     return (
       <div>
-        {clients ? (
-          clients.map((client) => (
-
-          ))
-        ) : (
-          <></>
-        )}
+        <Table headerTH={this.headerTable} body={clients} />
       </div>
     )
   }
