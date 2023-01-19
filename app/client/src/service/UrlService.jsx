@@ -20,6 +20,9 @@ class UrlService {
   randomUser(quantity) {
     return "https://randomuser.me/api/?results=" + quantity
   }
+  catStatusCode(status_code) {
+    return "https://http.cat/" + status_code
+  }
 }
 
 export default UrlService
