@@ -18,7 +18,7 @@ class Random extends Component {
     event.preventDefault()
 
     const { randomDogApi } = this.urlService
-    const url = await this.httpService.getAPIFetch(randomDogApi())
+    const { url } = await this.httpService.getAPIFetch(randomDogApi())
     console.log(url)
     const verifyUrl = url.split(".").pop()
     if (verifyUrl === "mp4") {

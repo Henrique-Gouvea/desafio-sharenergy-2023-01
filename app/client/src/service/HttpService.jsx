@@ -35,7 +35,7 @@ class HttpService {
     const urlImage = await fetch(url)
       .then((res) => res.json())
       .then((data) => {
-        return data.url
+        return data
       })
       .catch((err) => {
         return err
