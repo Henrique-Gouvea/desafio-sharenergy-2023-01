@@ -4,6 +4,7 @@
     "Pages",
     "Routes",
     "Components",
-    "Service"
+    "Service",
+    "Helpers"
   ]
 }
