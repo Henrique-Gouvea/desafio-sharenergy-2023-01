@@ -1,7 +1,6 @@
 import React, { Component } from "react"
 import HttpService from "../../service/HttpService"
 import UrlService from "../../service/UrlService"
-import CardUser from "../../components/cardUser"
 import Table from "../../components/table"
 
 class Client extends Component {
@@ -10,7 +9,7 @@ class Client extends Component {
     this.state = {
       clients: "",
     }
-    this.headerTable = ["Nome", "E-mail", "Mais Dados", "Editar", "Deletar"]
+    this.headerTable = ["Nome", "E-mail", "Dados", "Editar", "Deletar"]
     this.httpService = new HttpService()
     this.urlService = new UrlService()
   }
@@ -18,8 +17,8 @@ class Client extends Component {
   async componentDidMount() {
     const { clientUrl } = this.urlService
     const { data } = await this.httpService.get(clientUrl())
-    console.log(data.results)
-    this.setState({ clients: data.results })
+    console.log(data)
+    this.setState({ clients: data })
   }
 
   render() {

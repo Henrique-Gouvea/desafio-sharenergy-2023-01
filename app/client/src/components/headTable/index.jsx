@@ -5,7 +5,7 @@ function HeadTable({ headerTH }) {
     <thead clasName="table-header">
       <tr className="table-header-row">
         {headerTH.map((header) => (
-          <th>{{ header }}</th>
+          <th>{header}</th>
         ))}
       </tr>
     </thead>
