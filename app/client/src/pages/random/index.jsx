@@ -19,7 +19,6 @@ class Random extends Component {
 
     const { randomDogApi } = this.urlService
     const { url } = await this.httpService.getAPIFetch(randomDogApi())
-    console.log(url)
     const verifyUrl = url.split(".").pop()
     if (verifyUrl === "mp4") {
       this.setState({ url: not_found })

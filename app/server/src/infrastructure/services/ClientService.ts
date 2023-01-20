@@ -14,9 +14,7 @@ class ClientService implements IModel<IClient> {
       (clientSome) => clientSome.cpf === Number(client.cpf)
     )
     if (clientVerify) throw new CustomError(422, "Cpf already registered")
-    console.log(clientVerify)
     const newclient = await this._modelClient.create(client)
-    console.log(newclient)
 
     return newclient
   }

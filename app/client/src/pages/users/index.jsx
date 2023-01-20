@@ -16,7 +16,6 @@ class Users extends Component {
   async componentDidMount() {
     const { randomUser } = this.urlService
     const { data } = await this.httpService.get(randomUser(10))
-    console.log(data.results)
     this.setState({ users: data.results })
   }
 

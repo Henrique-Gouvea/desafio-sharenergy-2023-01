@@ -35,7 +35,6 @@ class Login extends Component {
     } else {
       this.setState({ error: response.data.message })
     }
-    // console.log(loginUserUrl())
   }
 
   render() {
