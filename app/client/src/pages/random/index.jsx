@@ -30,9 +30,14 @@ class Random extends Component {
   render() {
     const { url } = this.state
     return (
-      <div>
-        <Button onClick={(event) => this.handleClick(event)}>Refresh</Button>
-        <img src={url} alt="" />
+      <div className="border shadow-2xl rounded max-w-[500px] min-h-[500px] mx-auto bg-white p-8">
+        <Button
+          className="border w-full my-5 py-2 bg-green-700 hover:bg-green-800  text-white rounded"
+          onClick={(event) => this.handleClick(event)}
+        >
+          Refresh
+        </Button>
+        <img src={url} alt="" className="object-cover h-full w-full" />
       </div>
     )
   }
