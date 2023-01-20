@@ -65,19 +65,34 @@ class Client extends Component {
     this.changeStateDisableInput()
   }
 
+  async initialConfig() {
+    const { clientUrl } = this.urlService
+    const { setClients } = this.context
+    const { data } = await this.httpService.get(clientUrl())
+    setClients(data ? data : [])
+    this.setState({ responseMessage: "" })
+    this.clearStateInputs()
+    this.changeStateDisableInput()
+  }
+
   async btnSave() {
     const { clientUrl } = this.urlService
-    const { client, setClients } = this.context
+    const { client } = this.context
+    if (client.edit) {
+      console.log("edit")
+      delete client.edit
+      const teste = await this.httpService.put(clientUrl(client._id))
+      console(teste)
+      this.initialConfig()
+      return
+    }
+    console.log("teste")
     delete client.edit
     const { data, status } = await this.httpService.post(clientUrl(), client)
     if (status !== 201) {
       this.setState({ responseMessage: data.message })
     } else {
-      const { data } = await this.httpService.get(clientUrl())
-      setClients(data ? data : [])
-      this.setState({ responseMessage: "" })
-      this.clearStateInputs()
-      this.changeStateDisableInput()
+      this.initialConfig()
     }
   }
 

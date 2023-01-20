@@ -33,8 +33,14 @@ class ClientService implements IModel<IClient> {
   public async update(id: string, client: IClient): Promise<IClient | null> {
     clientValidate(client)
     const getClient = await this._modelClient.readOne(id)
+    console.log(getClient)
+
     if (!getClient) throw new CustomError(404, "Client not found")
+    console.log(id, client)
+
     const updateClient = await this._modelClient.update(id, client)
+    console.log(updateClient)
+
     return updateClient
   }
 

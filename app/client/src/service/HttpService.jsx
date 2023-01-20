@@ -1,7 +1,7 @@
 import axios from "axios"
 
 class HttpService {
-  async get(url) {
+  optionsHeader() {
     const auth =
       "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjoiZGVzYWZpb3NoYXJlbmVyZ3kiLCJpYXQiOjE2NzQyMjQyMjQsImV4cCI6MTY3NDY1NjIyNH0.VE2_p7noE4XLZAy21N0Z4UYfgcTl_YhuDxIccoDNVww"
     const options = {
@@ -9,6 +9,11 @@ class HttpService {
         Authorization: auth,
       },
     }
+    return options
+  }
+
+  async get(url) {
+    const options = this.optionsHeader()
     try {
       return await axios.get(url, options)
     } catch (error) {
@@ -17,13 +22,7 @@ class HttpService {
   }
 
   async post(url, data) {
-    const auth =
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjoiZGVzYWZpb3NoYXJlbmVyZ3kiLCJpYXQiOjE2NzQyMjQyMjQsImV4cCI6MTY3NDY1NjIyNH0.VE2_p7noE4XLZAy21N0Z4UYfgcTl_YhuDxIccoDNVww"
-    const options = {
-      headers: {
-        Authorization: auth,
-      },
-    }
+    const options = this.optionsHeader()
     try {
       return await axios.post(url, data, options)
     } catch (error) {
@@ -32,15 +31,18 @@ class HttpService {
   }
 
   async delete(url) {
-    const auth =
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjoiZGVzYWZpb3NoYXJlbmVyZ3kiLCJpYXQiOjE2NzQyMjQyMjQsImV4cCI6MTY3NDY1NjIyNH0.VE2_p7noE4XLZAy21N0Z4UYfgcTl_YhuDxIccoDNVww"
-    const options = {
-      headers: {
-        Authorization: auth,
-      },
-    }
+    const options = this.optionsHeader()
     try {
       return await axios.delete(url, options)
+    } catch (error) {
+      return error.response !== undefined ? error.response : error
+    }
+  }
+
+  async put(url) {
+    const options = this.optionsHeader()
+    try {
+      return await axios.put(url, options)
     } catch (error) {
       return error.response !== undefined ? error.response : error
     }

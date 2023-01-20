@@ -40,7 +40,7 @@ function Cadaster({ inputDisabled }) {
       <Input
         name="cpf"
         disabled={inputDisabled}
-        value={client.cpf}
+        value={Number(client.cpf)}
         onChange={(event) => handleChange(event)}
       />
       <p>Endereço:</p>

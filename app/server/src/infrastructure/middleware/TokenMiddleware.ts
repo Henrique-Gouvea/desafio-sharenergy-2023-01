@@ -12,12 +12,15 @@ class TokenMiddleware {
       if (!authHeader) {
         throw new CustomError(401, "Invalid token")
       }
+      console.log(authHeader)
 
       const data = this.token.checkToken(authHeader)
       req.body.user = data
 
       next()
     } catch (err) {
+      console.log(err)
+
       next(err)
     }
   }

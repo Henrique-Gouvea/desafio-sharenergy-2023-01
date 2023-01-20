@@ -21,6 +21,8 @@ class TokenProvider implements IToken {
   checkToken(token: string): string {
     try {
       const response = verify(token, this.jwtSecret)
+      console.log(response)
+
       if (!response) throw new CustomError(401, "Token must be a valid token")
       const { data } = response as JwtPayload
 
