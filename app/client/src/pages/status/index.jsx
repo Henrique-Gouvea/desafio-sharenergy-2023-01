@@ -39,6 +39,7 @@ class StatusCode extends Component {
         <Select
           name="select-status"
           value={statusCode}
+          className="w-full"
           onChange={(event) => {
             this.handleChange(event)
           }}
