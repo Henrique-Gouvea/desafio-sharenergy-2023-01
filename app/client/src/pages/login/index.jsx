@@ -41,7 +41,7 @@ class Login extends Component {
     const { username, password, isChecked, user, error } = this.state
     return (
       <div className="container mx-auto px-4 py-10 space-y-8">
-        <div className="max-w-[400px] w-full mx-auto bg-white p-8">
+        <div className="border shadow-2xl rounded max-w-[400px] w-full mx-auto bg-white p-8">
           {user && <Navigate to="/users" />}
           <form className="max-w-[400px] w-full mx-auto bg-white p-4">
             <h2 className="text-4xl font-bold text-center py-6">Login</h2>
