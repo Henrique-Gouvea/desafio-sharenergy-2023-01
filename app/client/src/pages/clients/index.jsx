@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 import HttpService from "../../service/HttpService"
 import UrlService from "../../service/UrlService"
-import Table from "../../components/table"
+import TableG from "../../components/table"
 import Cadaster from "../../components/cadaster"
 // import Button from "../../components/button"
 import { Button } from "@material-ui/core"
@@ -127,7 +127,7 @@ class Client extends Component {
           </div>
         </div>
 
-        <Table headerTH={this.headerTable} body={clients} />
+        <TableG headerTH={this.headerTable} body={clients} />
       </div>
     )
   }

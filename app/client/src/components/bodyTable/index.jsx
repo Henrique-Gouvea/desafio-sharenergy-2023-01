@@ -3,6 +3,7 @@ import Button from "../button"
 import AppContext from "../../context/AppContext"
 import HttpService from "../../service/HttpService"
 import UrlService from "../../service/UrlService"
+import { TableRow } from "@material-ui/core"
 
 function BodyTable({ body }) {
   const { setClient, setClients, setDisabled, disabled } =
@@ -31,7 +32,7 @@ function BodyTable({ body }) {
     <tbody>
       {body ? (
         body.map((bodyUnit, index) => (
-          <tr key={index}>
+          <TableRow key={index}>
             <td>{bodyUnit.username}</td>
             <td>{bodyUnit.email}</td>
             <td>{bodyUnit.phone}</td>
@@ -48,7 +49,7 @@ function BodyTable({ body }) {
                 Deletar
               </Button>
             </td>
-          </tr>
+          </TableRow>
         ))
       ) : (
         <></>
