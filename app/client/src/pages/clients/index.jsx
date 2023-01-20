@@ -5,6 +5,8 @@ import Table from "../../components/table"
 import Cadaster from "../../components/cadaster"
 import Button from "../../components/button"
 
+import AppContext from "../../context/AppContext"
+
 class Client extends Component {
   constructor(props) {
     super(props)
@@ -19,15 +21,14 @@ class Client extends Component {
     this.httpService = new HttpService()
     this.urlService = new UrlService()
   }
-
+  static contextType = AppContext
   async componentDidMount() {
     const { clientUrl } = this.urlService
     const { data } = await this.httpService.get(clientUrl())
-    console.log(data)
     this.setState({ clients: data })
   }
 
-  changeState() {
+  changeStateDisableInput() {
     this.setState({
       inputDisabled: !this.state.inputDisabled,
       btnNewClientDisabled: !this.state.btnNewClientDisabled,
@@ -36,16 +37,25 @@ class Client extends Component {
     })
   }
 
+  clearStateInputs() {
+    const { setClient } = this.context
+    setClient({ name: "", phone: "", email: "", cpf: "", address: "" })
+  }
+
   btnNewClient() {
-    this.changeState()
+    this.changeStateDisableInput()
   }
 
   btnCancel() {
-    this.changeState()
+    this.clearStateInputs()
+    this.changeStateDisableInput()
   }
 
   btnSave() {
-    this.changeState()
+    const { client } = this.context
+    console.log(client)
+    this.clearStateInputs()
+    this.changeStateDisableInput()
   }
 
   render() {

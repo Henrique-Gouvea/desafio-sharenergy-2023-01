@@ -5,6 +5,7 @@
     "Routes",
     "Components",
     "Service",
-    "Helpers"
+    "Helpers",
+    "Context"
   ]
 }

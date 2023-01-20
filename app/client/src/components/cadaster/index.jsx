@@ -1,19 +1,55 @@
-import React from "react"
+import React, { useContext } from "react"
 import Input from "../input"
+import AppContext from "../../context/AppContext"
 
 function Cadaster({ inputDisabled }) {
+  const { client, setClient } = useContext(AppContext)
+
+  const handleChange = ({ target: { value, name } }) => {
+    setClient((prevalue) => {
+      return {
+        ...prevalue,
+        [name]: value,
+      }
+    })
+  }
   return (
     <div>
       <p>Nome:</p>
-      <Input disabled={inputDisabled} />
+      <Input
+        name="name"
+        disabled={inputDisabled}
+        value={client.name}
+        onChange={(event) => handleChange(event)}
+      />
       <p>Telefone:</p>
-      <Input disabled={inputDisabled} />
+      <Input
+        name="phone"
+        disabled={inputDisabled}
+        value={client.phone}
+        onChange={(event) => handleChange(event)}
+      />
       <p>Email:</p>
-      <Input disabled={inputDisabled} />
+      <Input
+        name="email"
+        disabled={inputDisabled}
+        value={client.email}
+        onChange={(event) => handleChange(event)}
+      />
       <p>CPF:</p>
-      <Input disabled={inputDisabled} />
-      <p>Adress:</p>
-      <Input disabled={inputDisabled} />
+      <Input
+        name="cpf"
+        disabled={inputDisabled}
+        value={client.cpf}
+        onChange={(event) => handleChange(event)}
+      />
+      <p>Endereço:</p>
+      <Input
+        name="adress"
+        disabled={inputDisabled}
+        value={client.adress}
+        onChange={(event) => handleChange(event)}
+      />
     </div>
   )
 }
