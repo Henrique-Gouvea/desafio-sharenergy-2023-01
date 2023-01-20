@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import AppContext from "./AppContext"
 
 function AppProvider({ children }) {
@@ -10,10 +10,15 @@ function AppProvider({ children }) {
     address: "",
     edit: false,
   })
+  const [clients, setClients] = useState([])
+
+  useEffect(() => {}, [clients])
 
   const stateValue = {
     client,
     setClient,
+    clients,
+    setClients,
   }
 
   return (

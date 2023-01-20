@@ -5,7 +5,7 @@ import HttpService from "../../service/HttpService"
 import UrlService from "../../service/UrlService"
 
 function BodyTable({ body }) {
-  const { setClient } = useContext(AppContext)
+  const { setClient, setClients } = useContext(AppContext)
   const httpService = new HttpService()
   const urlService = new UrlService()
 
@@ -14,8 +14,10 @@ function BodyTable({ body }) {
   }
 
   const removeClient = async (_event, client) => {
-    const { clientUrlId } = urlService
+    const { clientUrlId, clientUrl } = urlService
     await httpService.delete(clientUrlId(String(client._id)))
+    const { data } = await httpService.get(clientUrl())
+    setClients(data ? data : [])
   }
 
   return (

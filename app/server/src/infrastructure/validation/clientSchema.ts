@@ -23,7 +23,7 @@ const clientSchema = Joi.object({
     "any.required": "Field is address required",
   }),
 
-  cpf: Joi.string().min(6).required().messages({
+  cpf: Joi.string().min(11).max(11).required().messages({
     "string.empty": "Field is cpf required",
     "any.required": "Field is cpf required",
   }),

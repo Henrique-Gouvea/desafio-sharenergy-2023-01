@@ -32,9 +32,10 @@ class Client extends Component {
   }
   static contextType = AppContext
   async componentDidMount() {
+    const { setClients } = this.context
     const { clientUrl } = this.urlService
     const { data } = await this.httpService.get(clientUrl())
-    this.setState({ clients: data ? data : [] })
+    setClients(data ? data : [])
   }
 
   changeStateDisableInput() {
@@ -69,26 +70,31 @@ class Client extends Component {
 
   async btnSave() {
     const { clientUrl } = this.urlService
-    const { client } = this.context
+    const { client, setClients } = this.context
     delete client.edit
     const { data, status } = await this.httpService.post(clientUrl(), client)
     if (status !== 201) {
       this.setState({ responseMessage: data.message })
     } else {
+      const { data } = await this.httpService.get(clientUrl())
+      setClients(data ? data : [])
+      this.setState({ responseMessage: "" })
       this.clearStateInputs()
       this.changeStateDisableInput()
     }
   }
 
+  useEffect
+
   render() {
     const {
-      clients,
       inputDisabled,
       btnNewClientDisabled,
       btnCancelDisabled,
       btnSaveDisabled,
       responseMessage,
     } = this.state
+    const { clients } = this.context
     return (
       <div>
         <Button
