@@ -1,15 +1,22 @@
 import React, { useContext } from "react"
 import Button from "../button"
 import AppContext from "../../context/AppContext"
+import HttpService from "../../service/HttpService"
+import UrlService from "../../service/UrlService"
 
 function BodyTable({ body }) {
   const { setClient } = useContext(AppContext)
+  const httpService = new HttpService()
+  const urlService = new UrlService()
 
-  const btnEditClient = (_event, clientUnit) => {
-    setClient({ ...clientUnit, edit: true })
+  const btnEditClient = (_event, client) => {
+    setClient({ ...client, edit: true })
   }
 
-  const removeClient = (event) => {}
+  const removeClient = async (_event, client) => {
+    const { clientUrlId } = urlService
+    await httpService.delete(clientUrlId(String(client._id)))
+  }
 
   return (
     <tbody>

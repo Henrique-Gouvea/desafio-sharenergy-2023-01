@@ -72,7 +72,7 @@ class Client extends Component {
     const { client } = this.context
     delete client.edit
     const { data, status } = await this.httpService.post(clientUrl(), client)
-    if (status !== 200) {
+    if (status !== 201) {
       this.setState({ responseMessage: data.message })
     } else {
       this.clearStateInputs()
