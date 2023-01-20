@@ -11,6 +11,12 @@ function AppProvider({ children }) {
     edit: false,
   })
   const [clients, setClients] = useState([])
+  const [disabled, setDisabled] = useState({
+    inputDisabled: true,
+    btnNewClientDisabled: false,
+    btnCancelDisabled: true,
+    btnSaveDisabled: true,
+  })
 
   useEffect(() => {}, [clients])
 
@@ -19,6 +25,8 @@ function AppProvider({ children }) {
     setClient,
     clients,
     setClients,
+    disabled,
+    setDisabled,
   }
 
   return (

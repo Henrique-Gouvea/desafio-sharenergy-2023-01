@@ -11,11 +11,6 @@ class Client extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      clients: [],
-      inputDisabled: true,
-      btnNewClientDisabled: false,
-      btnCancelDisabled: true,
-      btnSaveDisabled: true,
       responseMessage: false,
     }
     this.headerTable = [
@@ -31,6 +26,7 @@ class Client extends Component {
     this.urlService = new UrlService()
   }
   static contextType = AppContext
+
   async componentDidMount() {
     const { setClients } = this.context
     const { clientUrl } = this.urlService
@@ -39,11 +35,12 @@ class Client extends Component {
   }
 
   changeStateDisableInput() {
-    this.setState({
-      inputDisabled: !this.state.inputDisabled,
-      btnNewClientDisabled: !this.state.btnNewClientDisabled,
-      btnCancelDisabled: !this.state.btnCancelDisabled,
-      btnSaveDisabled: !this.state.btnSaveDisabled,
+    const { setDisabled, disabled } = this.context
+    setDisabled({
+      inputDisabled: !disabled.inputDisabled,
+      btnNewClientDisabled: !disabled.btnNewClientDisabled,
+      btnCancelDisabled: !disabled.btnCancelDisabled,
+      btnSaveDisabled: !disabled.btnSaveDisabled,
     })
   }
 
@@ -87,29 +84,29 @@ class Client extends Component {
   useEffect
 
   render() {
-    const {
-      inputDisabled,
-      btnNewClientDisabled,
-      btnCancelDisabled,
-      btnSaveDisabled,
-      responseMessage,
-    } = this.state
-    const { clients } = this.context
+    const { responseMessage } = this.state
+    const { clients, disabled } = this.context
     return (
       <div>
         <Button
           onClick={() => this.btnNewClient()}
-          disabled={btnNewClientDisabled}
+          disabled={disabled.btnNewClientDisabled}
         >
           Novo Cliente
         </Button>
-        <Button onClick={() => this.btnCancel()} disabled={btnCancelDisabled}>
+        <Button
+          onClick={() => this.btnCancel()}
+          disabled={disabled.btnCancelDisabled}
+        >
           Cancelar
         </Button>
-        <Button onClick={() => this.btnSave()} disabled={btnSaveDisabled}>
+        <Button
+          onClick={() => this.btnSave()}
+          disabled={disabled.btnSaveDisabled}
+        >
           Salvar
         </Button>
-        <Cadaster inputDisabled={inputDisabled} />
+        <Cadaster inputDisabled={disabled.inputDisabled} />
         {responseMessage ? <p>{responseMessage}</p> : ""}
         <Table headerTH={this.headerTable} body={clients} />
       </div>

@@ -5,12 +5,19 @@ import HttpService from "../../service/HttpService"
 import UrlService from "../../service/UrlService"
 
 function BodyTable({ body }) {
-  const { setClient, setClients } = useContext(AppContext)
+  const { setClient, setClients, setDisabled, disabled } =
+    useContext(AppContext)
   const httpService = new HttpService()
   const urlService = new UrlService()
 
   const btnEditClient = (_event, client) => {
     setClient({ ...client, edit: true })
+    setDisabled({
+      inputDisabled: !disabled.inputDisabled,
+      btnNewClientDisabled: !disabled.btnNewClientDisabled,
+      btnCancelDisabled: !disabled.btnCancelDisabled,
+      btnSaveDisabled: !disabled.btnSaveDisabled,
+    })
   }
 
   const removeClient = async (_event, client) => {
