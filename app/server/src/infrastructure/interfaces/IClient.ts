@@ -2,6 +2,6 @@ export interface IClient {
   username: string
   email: string
   phone: string
-  adress: string
+  address: string
   cpf: number
 }

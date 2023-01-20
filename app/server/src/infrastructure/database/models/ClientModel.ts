@@ -7,7 +7,7 @@ const clientMongooseSchema = new Schema<IClient>(
     username: String,
     email: String,
     phone: String,
-    adress: String,
+    address: String,
     cpf: Number,
   },
   { versionKey: false }
