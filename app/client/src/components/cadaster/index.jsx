@@ -45,9 +45,9 @@ function Cadaster({ inputDisabled }) {
       />
       <p>Endereço:</p>
       <Input
-        name="adress"
+        name="address"
         disabled={inputDisabled}
-        value={client.adress}
+        value={client.address}
         onChange={(event) => handleChange(event)}
       />
     </div>
