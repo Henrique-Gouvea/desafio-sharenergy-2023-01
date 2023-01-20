@@ -10,8 +10,6 @@ function BodyTable({ body }) {
     setClient({ ...clientUnit })
   }
 
-  const btnMoreInformations = (event) => {}
-
   const removeClient = (event) => {}
 
   return (
@@ -21,18 +19,17 @@ function BodyTable({ body }) {
           <tr key={index}>
             <td>{bodyUnit.username}</td>
             <td>{bodyUnit.email}</td>
-            <td>
-              <Button onClick={(bodyUnit) => btnMoreInformations(bodyUnit)}>
-                Mais Info
-              </Button>
-            </td>
+            <td>{bodyUnit.phone}</td>
+            <td>{bodyUnit.cpf}</td>
+            <td>{bodyUnit.address}</td>
+
             <td>
               <Button onClick={(event) => btnEditClient(event, bodyUnit)}>
                 Editar
               </Button>
             </td>
             <td>
-              <Button onClick={(bodyUnit) => removeClient(bodyUnit)}>
+              <Button onClick={(event) => removeClient(event, bodyUnit)}>
                 Deletar
               </Button>
             </td>

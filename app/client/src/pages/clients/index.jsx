@@ -17,7 +17,15 @@ class Client extends Component {
       btnCancelDisabled: true,
       btnSaveDisabled: true,
     }
-    this.headerTable = ["Nome", "E-mail", "Dados", "Editar", "Deletar"]
+    this.headerTable = [
+      "Nome",
+      "E-mail",
+      "Telefone",
+      "CPF",
+      "Endereço",
+      "Editar",
+      "Deletar",
+    ]
     this.httpService = new HttpService()
     this.urlService = new UrlService()
   }
