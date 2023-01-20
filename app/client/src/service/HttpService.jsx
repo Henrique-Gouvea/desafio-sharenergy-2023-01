@@ -3,7 +3,7 @@ import axios from "axios"
 class HttpService {
   async get(url) {
     const auth =
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjoiZGVzYWZpb3NoYXJlbmVyZ3kiLCJpYXQiOjE2NzM4OTA5NzcsImV4cCI6MTY3NDMyMjk3N30.G4w7GkJM8G6l788gUlkJCXaExI-UP_iA4RgB3na5JKA"
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjoiZGVzYWZpb3NoYXJlbmVyZ3kiLCJpYXQiOjE2NzQyMjQyMjQsImV4cCI6MTY3NDY1NjIyNH0.VE2_p7noE4XLZAy21N0Z4UYfgcTl_YhuDxIccoDNVww"
     const options = {
       headers: {
         Authorization: auth,
@@ -18,7 +18,7 @@ class HttpService {
 
   async post(url, data) {
     const auth =
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjoiZGVzYWZpb3NoYXJlbmVyZ3kiLCJpYXQiOjE2NzM4OTA5NzcsImV4cCI6MTY3NDMyMjk3N30.G4w7GkJM8G6l788gUlkJCXaExI-UP_iA4RgB3na5JKA"
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjoiZGVzYWZpb3NoYXJlbmVyZ3kiLCJpYXQiOjE2NzQyMjQyMjQsImV4cCI6MTY3NDY1NjIyNH0.VE2_p7noE4XLZAy21N0Z4UYfgcTl_YhuDxIccoDNVww"
     const options = {
       headers: {
         Authorization: auth,

@@ -5,9 +5,8 @@ import AppContext from "../../context/AppContext"
 function BodyTable({ body }) {
   const { setClient } = useContext(AppContext)
 
-  const btnEditClient = (event, clientUnit) => {
-    console.log(clientUnit)
-    setClient({ ...clientUnit })
+  const btnEditClient = (_event, clientUnit) => {
+    setClient({ ...clientUnit, edit: true })
   }
 
   const removeClient = (event) => {}

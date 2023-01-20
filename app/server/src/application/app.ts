@@ -13,7 +13,7 @@ app.use(helmet())
 app.use(express.json())
 
 app.use("/user", routeUser)
-app.use("/client", routeClient)
+app.use("/clients", routeClient)
 app.use((err: Error, req: Request, res: Response, next: NextFunction) =>
   errorMiddleware(err, req, res, next)
 )

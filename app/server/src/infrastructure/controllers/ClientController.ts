@@ -7,6 +7,7 @@ class ClientController {
 
   public async create(req: Request, res: Response) {
     const client = req.body
+
     const newClient = await this.service.create(client)
     res.status(201).json(newClient)
   }

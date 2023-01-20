@@ -17,7 +17,7 @@ function Cadaster({ inputDisabled }) {
     <div>
       <p>Nome:</p>
       <Input
-        name="name"
+        name="username"
         disabled={inputDisabled}
         value={client.username}
         onChange={(event) => handleChange(event)}

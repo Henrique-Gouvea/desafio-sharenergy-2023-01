@@ -27,6 +27,7 @@ const clientSchema = Joi.object({
     "string.empty": "Field is cpf required",
     "any.required": "Field is cpf required",
   }),
+  user: Joi.string(),
 })
 
 const clientValidate = (client: IClient): void => {

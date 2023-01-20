@@ -8,6 +8,7 @@ function AppProvider({ children }) {
     email: "",
     cpf: "",
     address: "",
+    edit: false,
   })
 
   const stateValue = {

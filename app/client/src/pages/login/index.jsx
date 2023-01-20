@@ -29,7 +29,7 @@ class Login extends Component {
       username,
       password,
     })
-    console.log(response.data.message)
+    console.log(response.data.token)
     if (response.status === 200) {
       this.setState({ user: username })
     } else {

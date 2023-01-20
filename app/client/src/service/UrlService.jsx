@@ -12,10 +12,10 @@ class UrlService {
   }
 
   clientUrl() {
-    return apiDomain + "client/"
+    return apiDomain + "clients/"
   }
   clientUrlId(id) {
-    return apiDomain + "client/" + id
+    return apiDomain + "clients/" + id
   }
   randomUser(quantity) {
     return "https://randomuser.me/api/?results=" + quantity

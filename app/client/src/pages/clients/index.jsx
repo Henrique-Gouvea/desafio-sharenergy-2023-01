@@ -11,11 +11,12 @@ class Client extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      clients: "",
+      clients: [],
       inputDisabled: true,
       btnNewClientDisabled: false,
       btnCancelDisabled: true,
       btnSaveDisabled: true,
+      responseMessage: false,
     }
     this.headerTable = [
       "Nome",
@@ -33,7 +34,7 @@ class Client extends Component {
   async componentDidMount() {
     const { clientUrl } = this.urlService
     const { data } = await this.httpService.get(clientUrl())
-    this.setState({ clients: data })
+    this.setState({ clients: data ? data : [] })
   }
 
   changeStateDisableInput() {
@@ -47,7 +48,14 @@ class Client extends Component {
 
   clearStateInputs() {
     const { setClient } = this.context
-    setClient({ username: "", phone: "", email: "", cpf: "", address: "" })
+    setClient({
+      username: "",
+      phone: "",
+      email: "",
+      cpf: "",
+      address: "",
+      edit: false,
+    })
   }
 
   btnNewClient() {
@@ -59,11 +67,17 @@ class Client extends Component {
     this.changeStateDisableInput()
   }
 
-  btnSave() {
+  async btnSave() {
+    const { clientUrl } = this.urlService
     const { client } = this.context
-    console.log(client)
-    this.clearStateInputs()
-    this.changeStateDisableInput()
+    delete client.edit
+    const { data, status } = await this.httpService.post(clientUrl(), client)
+    if (status !== 200) {
+      this.setState({ responseMessage: data.message })
+    } else {
+      this.clearStateInputs()
+      this.changeStateDisableInput()
+    }
   }
 
   render() {
@@ -73,6 +87,7 @@ class Client extends Component {
       btnNewClientDisabled,
       btnCancelDisabled,
       btnSaveDisabled,
+      responseMessage,
     } = this.state
     return (
       <div>
@@ -89,6 +104,7 @@ class Client extends Component {
           Salvar
         </Button>
         <Cadaster inputDisabled={inputDisabled} />
+        {responseMessage ? <p>{responseMessage}</p> : ""}
         <Table headerTH={this.headerTable} body={clients} />
       </div>
     )
