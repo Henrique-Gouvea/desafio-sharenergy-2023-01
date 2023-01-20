@@ -3,7 +3,7 @@ import AppContext from "./AppContext"
 
 function AppProvider({ children }) {
   const [client, setClient] = useState({
-    name: "",
+    username: "",
     phone: "",
     email: "",
     cpf: "",

@@ -19,7 +19,7 @@ function Cadaster({ inputDisabled }) {
       <Input
         name="name"
         disabled={inputDisabled}
-        value={client.name}
+        value={client.username}
         onChange={(event) => handleChange(event)}
       />
       <p>Telefone:</p>

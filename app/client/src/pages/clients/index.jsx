@@ -39,7 +39,7 @@ class Client extends Component {
 
   clearStateInputs() {
     const { setClient } = this.context
-    setClient({ name: "", phone: "", email: "", cpf: "", address: "" })
+    setClient({ username: "", phone: "", email: "", cpf: "", address: "" })
   }
 
   btnNewClient() {
