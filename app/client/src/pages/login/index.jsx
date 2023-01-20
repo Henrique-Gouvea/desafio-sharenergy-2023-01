@@ -40,39 +40,57 @@ class Login extends Component {
   render() {
     const { username, password, isChecked, user, error } = this.state
     return (
-      <div>
-        {user && <Navigate to="/users" />}
-        <form>
-          <Input
-            id="login-name"
-            type="text"
-            placeholder="Name"
-            value={username}
-            onChange={(event) =>
-              this.setState({ username: event.target.value })
-            }
-          ></Input>
-          <Input
-            id="login-password"
-            type="password"
-            placeholder="Password"
-            value={password}
-            onChange={(event) =>
-              this.setState({ password: event.target.value })
-            }
-          ></Input>
-          <div>
-            <Input
-              type="checkbox"
-              name="remember"
-              checked={isChecked}
-              onChange={() => this.handleChecked()}
-            />
-            <label id="remember-label">Remember Me</label>
-          </div>
-          <Button onClick={(event) => this.handleClick(event)}>Login</Button>
-        </form>
-        {error && <p>{error}</p>}
+      <div className="container mx-auto px-4 py-10 space-y-8">
+        <div className="max-w-[400px] w-full mx-auto bg-white p-8">
+          {user && <Navigate to="/users" />}
+          <form className="max-w-[400px] w-full mx-auto bg-white p-4">
+            <h2 className="text-4xl font-bold text-center py-6">Login</h2>
+            <div className="flex flex-col py-2">
+              <label>Name</label>
+              <Input
+                id="login-name"
+                type="text"
+                placeholder="Name"
+                value={username}
+                onChange={(event) =>
+                  this.setState({ username: event.target.value })
+                }
+                className="w-full bg-gray-50 border border-gray-300 focus:border-green-800 rounded px-2 py-1 text-sm text-gray-800 placeholder-gray-300 focus:outline-none"
+              ></Input>
+            </div>
+            <div className="flex flex-col py-2">
+              <label>Password</label>
+              <Input
+                id="login-password"
+                type="password"
+                placeholder="Password"
+                value={password}
+                onChange={(event) =>
+                  this.setState({ password: event.target.value })
+                }
+                className="w-full bg-gray-50 border border-gray-300 focus:border-green-800 rounded px-2 py-1 text-sm text-gray-800 placeholder-gray-300 focus:outline-none"
+              ></Input>
+            </div>
+            <div>
+              <Input
+                type="checkbox"
+                name="remember"
+                checked={isChecked}
+                onChange={() => this.handleChecked()}
+              />
+              <label id="remember-label" className="mr-2">
+                Remember Me
+              </label>
+            </div>
+            <Button
+              className="border w-full my-5 py-2 bg-green-700 hover:bg-green-800  text-white rounded"
+              onClick={(event) => this.handleClick(event)}
+            >
+              Login
+            </Button>
+          </form>
+          {error && <p>{error}</p>}
+        </div>
       </div>
     )
   }
