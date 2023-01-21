@@ -63,7 +63,7 @@ Caso não ocorra de os seguintes comandos:
 
     - npm install
 
-    - npm run start
+    - npm run dev
 
     Abra outro terminal e de os comandos:
 
