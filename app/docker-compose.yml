@@ -1,0 +1,47 @@
+version: "3"
+
+services:
+  frontend:
+    container_name: app_client
+    build: ./client
+    ports:
+      - 3000:3000
+    platform: linux/x86_64
+    working_dir: /client
+    depends_on:
+      backend:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "lsof", "-t", "-i:3000"]
+      timeout: 20s
+      retries: 5
+
+  backend:
+    image: node:16.14
+    container_name: app_server
+    build: ./server
+    tty: true
+    stdin_open: true
+    command: bash
+    restart: always
+    working_dir: /server
+    depends_on:
+      - mongodb
+    ports:
+      - 3001:3001
+    platform: linux/x86_64
+    environment:
+      - PORT=3001
+      - MONGO_DB_URL=mongodb://mongodb:27017/sharenergy
+      - JWT_SECRET=secret
+    healthcheck:
+      test: ["CMD", "lsof", "-t", "-i:3001"]
+      timeout: 20s
+      retries: 5
+
+  mongodb:
+    image: mongo:5.0.7
+    container_name: sharenergy_db
+    restart: always
+    ports:
+      - 27017:27017
