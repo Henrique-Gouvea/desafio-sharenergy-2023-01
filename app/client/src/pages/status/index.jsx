@@ -4,6 +4,7 @@ import UrlService from "../../service/UrlService"
 import httpStatus from "../../helpers/httpStatus"
 import not_found from "../../assets/image/not_found.png"
 import Select from "@material-ui/core/Select"
+import Header from "../../components/header"
 import { MenuItem } from "@material-ui/core"
 const NOT_FOUND = ["598", "505", "449", "428", "208", "205"]
 
@@ -35,23 +36,26 @@ class StatusCode extends Component {
   render() {
     const { url, statusCode } = this.state
     return (
-      <div className="border shadow-2xl rounded max-w-[500px] min-h-[500px] mx-auto bg-white p-8">
-        <Select
-          name="select-status"
-          value={statusCode}
-          className="w-full"
-          onChange={(event) => {
-            this.handleChange(event)
-          }}
-        >
-          <MenuItem value={"Selecione"}>Selecione</MenuItem>
-          {httpStatus.map((status) => (
-            <MenuItem key={status.status} value={status.status}>
-              {status.message}
-            </MenuItem>
-          ))}
-        </Select>
-        <img src={url} alt="" />
+      <div>
+        <Header />
+        <div className="border shadow-2xl rounded max-w-[500px] min-h-[500px] mx-auto bg-white p-8">
+          <Select
+            name="select-status"
+            value={statusCode}
+            className="w-full"
+            onChange={(event) => {
+              this.handleChange(event)
+            }}
+          >
+            <MenuItem value={"Selecione"}>Selecione</MenuItem>
+            {httpStatus.map((status) => (
+              <MenuItem key={status.status} value={status.status}>
+                {status.message}
+              </MenuItem>
+            ))}
+          </Select>
+          <img src={url} alt="" />
+        </div>
       </div>
     )
   }

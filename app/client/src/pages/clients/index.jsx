@@ -3,7 +3,7 @@ import HttpService from "../../service/HttpService"
 import UrlService from "../../service/UrlService"
 import TableG from "../../components/table"
 import Cadaster from "../../components/cadaster"
-// import Button from "../../components/button"
+import Header from "../../components/header"
 import { Button } from "@material-ui/core"
 
 import AppContext from "../../context/AppContext"
@@ -102,6 +102,7 @@ class Client extends Component {
     const { clients, disabled } = this.context
     return (
       <div>
+        <Header />
         <div className="container mx-auto px-4 py-10 space-y-8">
           <div className="border shadow-2xl rounded max-w-[1000px] w-full mx-auto bg-white p-8">
             <Button

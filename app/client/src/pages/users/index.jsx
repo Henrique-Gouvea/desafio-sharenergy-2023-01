@@ -3,6 +3,7 @@ import HttpService from "../../service/HttpService"
 import UrlService from "../../service/UrlService"
 import CardUser from "../../components/cardUser"
 import { RxDotFilled } from "react-icons/rx"
+import Header from "../../components/header"
 
 class Users extends Component {
   constructor(props) {
@@ -31,6 +32,7 @@ class Users extends Component {
     const { users, currentIndex } = this.state
     return (
       <div>
+        <Header />
         {users ? (
           <CardUser
             key={currentIndex}
