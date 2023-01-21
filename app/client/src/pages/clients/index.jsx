@@ -105,25 +105,32 @@ class Client extends Component {
         <div className="container mx-auto px-4 py-10 space-y-8">
           <div className="border shadow-2xl rounded max-w-[1000px] w-full mx-auto bg-white p-8">
             <Button
+              variant="outlined"
               onClick={() => this.btnNewClient()}
               disabled={disabled.btnNewClientDisabled}
             >
               Novo Cliente
             </Button>
+            <Cadaster inputDisabled={disabled.inputDisabled} />
             <Button
+              variant="outlined"
               onClick={() => this.btnCancel()}
               disabled={disabled.btnCancelDisabled}
             >
               Cancelar
             </Button>
             <Button
+              variant="outlined"
               onClick={() => this.btnSave()}
               disabled={disabled.btnSaveDisabled}
             >
               Salvar
             </Button>
-            <Cadaster inputDisabled={disabled.inputDisabled} />
-            {responseMessage ? <p>{responseMessage}</p> : ""}
+            {responseMessage ? (
+              <p className="text-red-500 p-2">{responseMessage}</p>
+            ) : (
+              ""
+            )}
           </div>
         </div>
 

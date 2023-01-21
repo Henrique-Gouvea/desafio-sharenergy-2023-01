@@ -15,7 +15,7 @@ function Cadaster({ inputDisabled }) {
   }
   return (
     <div className="flex flex-wrap">
-      <div>
+      <div className="p-3">
         <p>Nome:</p>
         <Input
           name="username"
@@ -24,7 +24,7 @@ function Cadaster({ inputDisabled }) {
           onChange={(event) => handleChange(event)}
         />
       </div>
-      <div>
+      <div className="p-3">
         <p>Telefone:</p>
         <Input
           name="phone"
@@ -33,7 +33,7 @@ function Cadaster({ inputDisabled }) {
           onChange={(event) => handleChange(event)}
         />
       </div>
-      <div>
+      <div className="p-3">
         <p>Email:</p>
         <Input
           name="email"
@@ -42,7 +42,7 @@ function Cadaster({ inputDisabled }) {
           onChange={(event) => handleChange(event)}
         />
       </div>
-      <div>
+      <div className="p-3">
         <p>CPF:</p>
         <Input
           name="cpf"
@@ -51,7 +51,7 @@ function Cadaster({ inputDisabled }) {
           onChange={(event) => handleChange(event)}
         />
       </div>
-      <div>
+      <div className="p-3">
         <p>Endereço:</p>
         <Input
           name="address"

@@ -1,9 +1,8 @@
 import React, { useContext } from "react"
-import Button from "../button"
 import AppContext from "../../context/AppContext"
 import HttpService from "../../service/HttpService"
 import UrlService from "../../service/UrlService"
-import { TableRow } from "@material-ui/core"
+import { TableRow, Button } from "@material-ui/core"
 
 function BodyTable({ body }) {
   const { setClient, setClients, setDisabled, disabled } =
@@ -40,12 +39,18 @@ function BodyTable({ body }) {
             <td>{bodyUnit.address}</td>
 
             <td>
-              <Button onClick={(event) => btnEditClient(event, bodyUnit)}>
+              <Button
+                variant="outlined"
+                onClick={(event) => btnEditClient(event, bodyUnit)}
+              >
                 Editar
               </Button>
             </td>
             <td>
-              <Button onClick={(event) => removeClient(event, bodyUnit)}>
+              <Button
+                variant="outlined"
+                onClick={(event) => removeClient(event, bodyUnit)}
+              >
                 Deletar
               </Button>
             </td>

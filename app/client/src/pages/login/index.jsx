@@ -89,7 +89,7 @@ class Login extends Component {
               Login
             </Button>
           </form>
-          {error && <p>{error}</p>}
+          {error && <p className="text-red-500 p-2">{error}</p>}
         </div>
       </div>
     )
