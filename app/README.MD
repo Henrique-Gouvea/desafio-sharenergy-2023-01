@@ -13,7 +13,7 @@
 
 Nesse projeto o objetivo foi desenvolver um projeto FullStack onde foram consumidas 3 Apis externas e feito um CRUD.
 
-Imagem de como ficou a página finalizada:
+
 
 ## 🚀 Como executar o projeto
 
@@ -106,3 +106,5 @@ As seguintes ferramentas foram usadas na construção do projeto:
 - **[Tailwind CSS]**
 
 ## </details>
+
+Link do video no Youtube https://youtu.be/V6mAUYohEYU
