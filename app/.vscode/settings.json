@@ -1,0 +1,11 @@
+{
+  "conventionalCommits.scopes": [
+    "Client",
+    "Pages",
+    "Routes",
+    "Components",
+    "Service",
+    "Helpers",
+    "Context"
+  ]
+}

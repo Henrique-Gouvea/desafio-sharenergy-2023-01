@@ -1,0 +1,17 @@
+{
+  "conventionalCommits.scopes": [
+    "Aplication",
+    "Interface",
+    "Database",
+    "Server",
+    "Models",
+    "Service",
+    "Errors",
+    "Validation",
+    "Controller ",
+    "Router",
+    "Integrations",
+    "Middleware",
+    "Provider"
+  ]
+}
